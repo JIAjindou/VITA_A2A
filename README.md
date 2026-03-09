@@ -226,3 +226,15 @@ We gratefully acknowledge open-source codebases that inspired VITA:
 ```
 
 ---
+
+## used code
+```
+python flare/eval.py policy=a2a task=pusht \
+  checkpoint_dir=flare_outputs/lerobot_pusht/a2a/test/checkpoints
+```
+
+```
+python flare/eval_multimodal.py policy=a2a task=pusht \
+  checkpoint_dir=flare_outputs/lerobot_pusht/a2a/test/checkpoints \
+  +eval_seed=42 +n_rollouts=20
+```
