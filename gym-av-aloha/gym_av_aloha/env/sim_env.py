@@ -288,13 +288,13 @@ class AVAlohaEnv(gym.Env):
         y_range = [-0.3, 0.3]
         z_range = [1.5, 1.5]
         ranges = np.vstack([x_range, y_range, z_range])
-        self.physics.named.model.light_directional[LIGHT_NAME] = False
+        self.physics.named.model.light_type[LIGHT_NAME] = 0  # 0=point light
         self.physics.named.model.light_pos[LIGHT_NAME] = np.random.uniform(ranges[:, 0], ranges[:, 1])
         self.physics.named.model.light_ambient[LIGHT_NAME] = np.random.uniform(0, 1.0, size=3)
         self.physics.named.model.light_diffuse[LIGHT_NAME] = np.random.uniform(.1, 1.0, size=3)
 
     def reset_light(self):
-        self.physics.named.model.light_directional[LIGHT_NAME] = True
+        self.physics.named.model.light_type[LIGHT_NAME] = 1  # 1=directional light
         self.physics.named.model.light_pos[LIGHT_NAME] = np.array([0, 1, 1.5])
         self.physics.named.model.light_ambient[LIGHT_NAME] = np.array([0.0, 0.0, 0.0])
         self.physics.named.model.light_dir[LIGHT_NAME] = np.array([0, 0, -1])

@@ -30,11 +30,11 @@ ema_power: 0.75
 
 # Training settings
 train:
-  steps: 50000
+  steps: 100000
   batch_size: 128
   num_workers: 16
-  log_freq: 100
-  save_freq: 5000
+  log_freq: 1000
+  save_freq: 10000
   keep_freq: 50000
   grad_clip_norm: 1.0
   save_best: true
@@ -42,8 +42,8 @@ train:
 # Validation settings
 val:
   num_episodes: 2 # Validation set episodes
-  val_offline_freq: 200 # Validate on dataset
-  val_online_freq: 200 # Validate in environment
+  val_offline_freq: 5000 # Validate on dataset
+  val_online_freq: 5000 # Validate in environment
   eval_n_episodes: 50
   eval_n_envs: 25
   batch_size: 512

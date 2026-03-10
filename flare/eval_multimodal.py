@@ -86,9 +86,10 @@ def run_multimodal_eval(cfg, policy, n_rollouts, output_dir):
     for i in range(n_rollouts):
         logger.info(f"Rollout {i+1}/{n_rollouts}")
 
-        # Reset torch seeds so policy internals are identical each run
-        torch.manual_seed(cfg.seed)
-        torch.cuda.manual_seed_all(cfg.seed)
+        # Use different torch seed per rollout so stochastic policies
+        # (e.g. A2A-Noise) produce different trajectories each run
+        torch.manual_seed(cfg.seed + i)
+        torch.cuda.manual_seed_all(cfg.seed + i)
 
         # Reset environment to our fixed initial state using the official API
         policy.reset()

@@ -229,8 +229,8 @@ We gratefully acknowledge open-source codebases that inspired VITA:
 
 ## used code
 ```
-python flare/eval.py policy=a2a task=pusht \
-  checkpoint_dir=flare_outputs/lerobot_pusht/a2a/test/checkpoints
+python flare/eval.py policy=a2a task=thread_needle \
+  checkpoint_dir=flare_outputs/avaloha_thread_needle/a2a/test/checkpoints
 ```
 
 ```
